@@ -1,9 +1,7 @@
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -18,6 +16,8 @@ public class TestPet {
     @Feature("Pet")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("roman shvets")
+    @Description("Это описание теста: Удаление несуществующего животного")
+    @Tag("pet")
     public void testDeleteNonExistentPet() {
 
         Response response = step("Отправить DELETE-запрос на удаление несуществующего питомца", () ->
