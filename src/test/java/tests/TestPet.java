@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestPet {
 
-    private static final String BASE_URL = "http://5.181.109.28:9090/api/v3";
+    private static final String BASE_URL = "https://petstore.swagger.rv-school.ru/api/v3";
 
     @Test
     @Feature("Pet")
@@ -64,6 +64,30 @@ public class TestPet {
         String responseBody = response.getBody().asString();
 
         // 3. Проверяем код и текст
+        step("Проверить, что статус-код ответа == 404", () ->
+                assertEquals(404, response.getStatusCode(),
+                        "Код ответа не совпал с ожидаемым. Ответ: " + responseBody));
+
+        step("Проверить, что текст ответа 'Pet not found'", () ->
+                assertEquals("Pet not found", responseBody,
+                        "Текст ответа не совпал с ожидаемым. Получен: " + responseBody));
+    }
+
+    @Test
+    @Feature("Pet")
+    @Severity(SeverityLevel.NORMAL)
+    @Owner("roman shvets")
+    public void testGetNonexistentPet() {
+
+        Response response = step("Отправить GET-запрос на получение несуществующего питомца", () ->
+                given()
+                        .contentType(ContentType.JSON)
+                        .header("Accept", "application/json")
+                        .when()
+                        .get(BASE_URL + "/pet/9999"));
+
+        String responseBody = response.getBody().asString();
+
         step("Проверить, что статус-код ответа == 404", () ->
                 assertEquals(404, response.getStatusCode(),
                         "Код ответа не совпал с ожидаемым. Ответ: " + responseBody));
