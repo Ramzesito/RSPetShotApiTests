@@ -28,7 +28,7 @@ public class TestPet {
                         .contentType(ContentType.JSON)
                         .header("Accept", "application/json")
                         .when()
-                        .delete(BASE_URL + "/pet/999"));
+                        .delete(BASE_URL + "/pet/9876"));
 
         String responseBody = response.getBody().asString();
 
@@ -49,7 +49,7 @@ public class TestPet {
     public void testUpdateNonexistentPet() {
 
         Pet pet = new Pet();
-        pet.setId(9999);
+        pet.setId(9876);
         pet.setName("Non-existent Pet");
         pet.setStatus("available");
 
@@ -84,7 +84,7 @@ public class TestPet {
                         .contentType(ContentType.JSON)
                         .header("Accept", "application/json")
                         .when()
-                        .get(BASE_URL + "/pet/9999"));
+                        .get(BASE_URL + "/pet/9876"));
 
         String responseBody = response.getBody().asString();
 
