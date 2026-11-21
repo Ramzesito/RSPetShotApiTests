@@ -27,4 +27,6 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    // пробрасываем -Denv из команды в процесс с тестами; по умолчанию test
+    systemProperty "env", System.getProperty("env", "test")
 }
