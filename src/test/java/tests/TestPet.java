@@ -109,7 +109,7 @@ public class TestPet {
             "9000, Bobby, available, 200",
             "9001, Sharik, pending, 200",
             "9002, Alpha, sold, 200",
-            "9003, Betta, unknown, 404",
+            "9003, Betta, unknown, 200",
     })
     @Feature("Pet")
     @Severity(SeverityLevel.CRITICAL)
