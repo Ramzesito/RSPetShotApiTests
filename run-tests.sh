@@ -10,12 +10,11 @@ if [ ! -x gradlew ]; then
     echo "Making gradlew executable..."
     chmod +x gradlew
 fi
+echo "Clearing previous allure-results..."
+rm -rf -- allure-results
 
-echo "Cleaning previous builds..."
-./gradlew clean
-
-echo "Running tests..."
-./gradlew test
+echo "Cleaning previous builds and running tests..."
+./gradlew clean test
 
 echo "Build completed successfully!"
 echo "Allure results saved to: allure-results/"
