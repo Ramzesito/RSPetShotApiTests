@@ -23,7 +23,11 @@ public class APIClient {
         } catch (IOException e) {
             throw new IllegalStateException("Unable to load configuration file: " + configFileName, e);
         }
-
+        String prp= properties.getProperty("baseUrl");
         return properties.getProperty("baseUrl");
+    }
+
+    public String getBaseUrl() {
+        return baseUrl;
     }
 }
