@@ -1,7 +1,14 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 
+// Если сервер вернёт поле, которого нет в модели, Jackson по умолчанию упадёт с UnrecognizedPropertyException.
+// Лечение - аннотация @JsonIgnoreProperties(ignoreUnknown = true) над классом Pet (импорт из com.fasterxml.jackson.annotation).
+// У PetShop лишних полей нет, но на других проектах это встречается постоянно.
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Pet {
     private int id;
     private String name;
