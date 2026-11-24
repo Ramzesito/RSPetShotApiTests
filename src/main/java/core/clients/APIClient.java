@@ -20,6 +20,7 @@ public class APIClient {
             if (input == null) {
                 throw new IllegalStateException("Configuration file not found: " + configFileName);
             }
+            properties.load(input);
         } catch (IOException e) {
             throw new IllegalStateException("Unable to load configuration file: " + configFileName, e);
         }
