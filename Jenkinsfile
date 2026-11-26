@@ -1,9 +1,7 @@
 pipeline {
-
     agent any
 
     stages {
-
         stage("Checkout") {
             steps {
                 checkout scm
@@ -16,11 +14,11 @@ pipeline {
                 sh "./run-tests.sh"
             }
         }
+    }
 
-        stage("Allure Report") {
-            steps {
-                allure results: [[path: "allure-results"]]
-            }
+    post {
+        always {
+            allure results: [[path: "allure-results"]]
         }
     }
 }
