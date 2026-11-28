@@ -9,6 +9,7 @@ repositories {
 dependencies {
     // JUnit 5
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'org.assertj:assertj-core:3.25.3'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     // RestAssured for API testing
@@ -23,6 +24,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
 
     testImplementation 'org.slf4j:slf4j-simple:1.7.36'
+
 }
 
 test {

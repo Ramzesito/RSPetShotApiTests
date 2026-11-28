@@ -18,4 +18,5 @@ public class ApiClientTest {
         assertFalse(apiClient.getBaseUrl().endsWith("/"), "baseUrl не должен оканчиваться слэшем");
         // Вывод: тест зелёный, если файл лежит в resources и содержит ключ baseUrl
     }
+
 }
